@@ -50,7 +50,7 @@ router.post("/add", (req, res) => {
     id: newId,
     task: req.body.task,
     complete: false,
-}
+  };
 
   if (taskExists) return res.status(404);
 
@@ -66,7 +66,9 @@ router.put("/:taskId", async (req, res) => {
 
   const editTask = allTodos.find((item) => item.task === taskId);
   // if (!editTask) return res.send.json({ message: "Task already exists." });
-  if (!editTask) {return res.status(404)}
+  if (!editTask) {
+    return res.status(404);
+  }
 
   // check that val is present, if not use prev. if new val use new.
   const updatedField = (val, prev) => (!val ? prev : val);
@@ -103,7 +105,6 @@ router.delete("/:taskid", (req, res) => {
 //   if (complete) taskToEdit.complete = complete;
 
 //   if (!taskToEdit) return res.json({ message: "Task already exists." });
-
 
 //   res.send(taskToEdit);
 // });

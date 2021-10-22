@@ -48,8 +48,6 @@ createTask.addEventListener("click", () => {
 
 // Delete todos
 const tasks = document.querySelector("#incomplete-tasks");
-//   const indivTask = document.querySelector('.todoTask');
-
 tasks.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -85,6 +83,6 @@ tasks.addEventListener("click", (event) => {
   if (editPressed) {
     fetch(`/todos/${id}`, {
       method: "PUT",
-    }).then((res) => res.json())
+    }).then((res) => res.json());
   }
 });
