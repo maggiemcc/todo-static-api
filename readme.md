@@ -4,9 +4,9 @@
 - npm install express
 - npm install node-fetch
 
-run on http://localhost:5000
-        - get todos: http://localhost:5000/todos
-        - get single todo: http://localhost:5000/1
+- run on http://localhost:5000
+    - get todos: http://localhost:5000/todos
+    - get single todo: http://localhost:5000/todos/1
 
 
 
