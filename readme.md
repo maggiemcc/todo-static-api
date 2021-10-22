@@ -1,4 +1,15 @@
 # TODOS STATIC WEB SERVER
+- npm intall
+- npm install body-parser
+- npm install express
+- npm install node-fetch
+
+run on http://localhost:5000
+        - get todos: http://localhost:5000/todos
+        - get single todo: http://localhost:5000/1
+
+
+
 * Located in [fetching](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
 
 ## 1- GET TODOS:
