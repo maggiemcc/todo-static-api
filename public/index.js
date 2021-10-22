@@ -1,15 +1,7 @@
-// (function (window) {
 // Display all todos
-//   const listOfTodos = document.querySelector("#incomplete-tasks");
 let layout = "";
 
-fetch("/todos")
-  .then((res) => res.json())
-  .then((data) => {
-    data.forEach((todo) => display(todo));
-  });
-
-function display(todo) {
+function displaying(todo) {
   let ul = document.querySelector("#incomplete-tasks");
 
   layout += `
@@ -26,6 +18,11 @@ function display(todo) {
 
   ul.innerHTML = layout;
 }
+fetch("/todos")
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((todo) => displaying(todo));
+  });
 
 // Create/Add new todo
 const newTaskInput = document.querySelector("#new-task");
@@ -45,38 +42,49 @@ createTask.addEventListener("click", () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      display(data);
+      displaying(data);
     });
 });
 
-// Delete & Edit todos
+// Delete todos
 const tasks = document.querySelector("#incomplete-tasks");
 //   const indivTask = document.querySelector('.todoTask');
 
 tasks.addEventListener("click", (event) => {
   event.preventDefault();
 
-  let deletePressed = event.target.id == "delete";
+  let deleteBtnPressed = event.target.id == "delete";
   let id = event.target.parentElement.parentElement.dataset.id;
 
-  if (deletePressed) {
-      fetch(`/todos/${id}`, {
+  if (deleteBtnPressed) {
+    fetch(`/todos/${id}`, {
       method: "DELETE",
     })
-    .then((res) => res.json())
-    .then(() => location.reload())
+      .then((res) => res.json())
+      .then(() => location.reload());
   }
 });
 
-// let editPressed = event.target.id === "edit";
+// Edit todos
+//   const indivTask = document.querySelector('.todoTask');
 
-// if (editPressed) {
-//   // console.log('edit task')
-//   // const taskTitle = document.querySelector('.task-input')
-//   // const typedName = document.querySelector('.task-name')
-//   const parent = event.target.parentElement.parentElement;
-//   let taskName = parent.querySelector(".task-name").textContent;
-//   console.log(taskName);
-// }
+tasks.addEventListener("click", (event) => {
+  event.preventDefault();
 
-// })(window);
+  let editPressed = event.target.id === "edit";
+  let id = event.target.parentElement.parentElement.dataset.id;
+  if (editPressed) {
+    // console.log('edit task')
+    // const taskTitle = document.querySelector('.task-input')
+    // const typedName = document.querySelector('.task-name')
+    const parent = event.target.parentElement.parentElement;
+    let taskName = parent.querySelector(".task-name").textContent;
+    console.log(taskName);
+  }
+
+  if (editPressed) {
+    fetch(`/todos/${id}`, {
+      method: "PUT",
+    }).then((res) => res.json())
+  }
+});

@@ -9,7 +9,7 @@ body {
   }
   .container {
     background: #fff;
-    width: 80%;
+    width: 95%;
     max-width: 700px;
     padding: 2%;
     border: 1px solid black;
@@ -73,6 +73,7 @@ body {
   /* New Task */
   input#new-task {
     width: 75%;
+    max-width: 350px;
     border: 1px solid black;
     display: inline;
     margin-right: 2%;
@@ -96,15 +97,15 @@ body {
     padding: 20px 0;
     border-bottom: 1px solid #eee;
   }
-  li > input[type="checkbox"] {
+  /* li > input[type="checkbox"] {
     margin: 0 10px;
     position: relative;
     top: 15px;
-  }
+  } */
   li > label {
     font-size: 18px;
     line-height: 40px;
-    /* width: 236px; */
+    max-width:350px;
     padding: 0 0 0 11px;
   }
   li >  input[type="text"] {
@@ -125,7 +126,7 @@ body {
     margin-right: 5px;
   }
   #icons {
-    width: 25%;
+    width: 30%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 5px;
@@ -133,7 +134,8 @@ body {
   #delete {
     background-color: darkRed;
     color: white;
-    padding: 2% 0%;
+    padding: 2% 5%;
+    width: 95%;
     border-radius: 2px;
     line-height: 40px;
   }
@@ -141,7 +143,8 @@ body {
   #edit {
     background-color: blue;
     color: white;
-    padding: 2% 0%;
+    padding: 2% 5%;
+    width: 95%;
     border-radius: 2px;
     line-height: 40px;
   }
@@ -163,4 +166,8 @@ body {
   
   ul li.editMode label {
     display:none;
+  }
+
+  #new-task-section {
+    text-align: center;
   }
