@@ -32,6 +32,6 @@
 ## 4- DELETE TODOS:
 - DELETE todos: on line 89
 [Delete route/todos](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
-- DELETE todos: on line 89
+- DELETE todos: on line 49
 [Delete Todo index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
  - created click eventlistener for delete button to deleted task with given id number and then reload page to show updated object array with removed task.

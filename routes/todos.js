@@ -77,13 +77,13 @@ router.put("/:taskId", async (req, res) => {
     ...editTask,
     id,
     task: updatedField(task, editTask.task),
-    complete: updatedField(complete, editTask.complete),
+    complete: complete,
   };
 
   const taskIndex = allTodos.findIndex((item) => item.id === taskId);
   allTodos.splice(taskIndex, 1, updatedTask);
-  res.send(updatedTask);
-  res.json(updatedTask);
+  res.send.json(updatedTask);
+  // res.json(updatedTask);
 });
 
 // DELETE - delete task
