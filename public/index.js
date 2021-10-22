@@ -11,18 +11,6 @@
 
   function display(todo) {
     let ul = document.querySelector("#incomplete-tasks");
-    // 	layout += `
-    // 	<li data-id="${todo.id}">
-    //    <input type="checkbox">
-    //    <label class="task-name">${todo.task}</label>
-    //    <input class="task-input" type="text">
-
-    //    <div id="icons">
-    //    <button id="edit">Edit</button>
-    //    <button id="delete">Delete</button>
-    //    </div>
-    //    </li>
-    // `;
 
     layout += `
 	 	<li data-id="${todo.id}">
@@ -37,10 +25,6 @@
 	`;
 
     ul.innerHTML = layout;
-
-	
-
-    // listOfTodos.insertAdjacentHTML("beforeend", li);
   }
 
   // Create/Add new todo
