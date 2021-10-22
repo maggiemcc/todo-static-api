@@ -17,6 +17,10 @@ app.get('/todos', (req, res) => {
     res.json({message: 'todo app nodejs api'});
 })
 
+// app.post('/', (req, res) => {
+//     res.json({message: 'todo app nodejs api'});
+// })
+
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);

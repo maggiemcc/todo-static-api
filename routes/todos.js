@@ -21,6 +21,7 @@ router.get('/todos', (req, res) => {
     res.json({message: 'todo app nodejs api'});
 })
 
+
 // Get - get tasks by ID
 router.get('/:taskId', (req, res) => {
     let found = allTodos.find((item) => {
@@ -33,9 +34,13 @@ router.get('/:taskId', (req, res) => {
         res.status(404).json({message: "Task does not exist"});
       }
 });
+// router.get('/add', (req, res) =>{
+//   res.status(200).json(found);
+
+// })
 
 // POST - add new task
-router.post("/", (req, res) => {
+router.post("/add", (req, res) => {
   let newId = allTodos.length + Math.floor(Math.random() * 258);
 
   const { id, task, complete } = req.body;
@@ -81,19 +86,11 @@ router.post("/", (req, res) => {
 
 
 // DELETE - delete task
-router.delete("/:taskId", (req, res) => {
-  const { taskId } = req.params;
-
-  let removeTask = allTodos.find((item) => item.id === taskId);
-  if (!removeTask) return res.status(404).json({message: "task does not exist"})
-  else {
-      allTodos.splice(index, 1);
-        res.status(200).json({message: "Success"})
-  }
-
-//   allTodos = allTodos.find((item) => item.id !== taskId);
-//   console.log(item)
-//   res.status(200).json({message: "Success"})
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  allTodos = allTodos.filter((todo) => todo.id != id)
+  res.send(allTodos)
 });
+
 
 module.exports = router;
