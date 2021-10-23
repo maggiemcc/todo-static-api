@@ -1,9 +1,8 @@
 // Display all todos
-let layout = "";
-
 function displaying(todo) {
   let ul = document.querySelector("#incomplete-tasks");
-  layout += `
+
+  let todoLayout = `
   <li class="todo-task" data-id="${todo.id}">
    <label class="task-name">${todo.task}</label>
 
@@ -14,9 +13,14 @@ function displaying(todo) {
  </li>
 `;
 
-  ul.innerHTML = layout;
+  ul.innerHTML += todoLayout;
 }
-fetch("/todos")
+fetch("/todos", {
+  method: "GET",
+  headers: {
+    "Content-type": "application/json; charset=UTF-8",
+  },
+})
   .then((res) => res.json())
   .then((data) => {
     data.forEach((todo) => displaying(todo));
@@ -29,13 +33,9 @@ const createTask = document.querySelector("#add-task");
 createTask.addEventListener("click", (event) => {
   event.preventDefault();
 
-  let inputTask = JSON.stringify({
-    task: newTaskInput.value,
-  });
-
   fetch("/todos/add", {
     method: "POST",
-    body: inputTask,
+    body: JSON.stringify({task: newTaskInput.value}),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
@@ -43,7 +43,9 @@ createTask.addEventListener("click", (event) => {
     .then((res) => res.json())
     .then((data) => {
       displaying(data);
-    });
+    })
+    .then(() => location.reload());
+
 });
 
 // Delete todos
@@ -60,7 +62,10 @@ tasks.addEventListener("click", (event) => {
       },
     })
       .then((res) => res.json())
-      .then(() => location.reload());
+      .then(() => location.reload())
+      .catch((error) => {
+        console.log(error)
+      });
   }
 });
 
@@ -72,7 +77,7 @@ tasks.addEventListener("click", (event) => {
   let id = event.target.parentElement.parentElement.dataset.id;
 
   if (editBtnPressed) {
-    console.log(`Editing task ${id}`)
+    console.log(`Editing task ${id}`);
 
     const taskLiElement = event.target.parentElement.parentElement;
 
@@ -80,29 +85,31 @@ tasks.addEventListener("click", (event) => {
 
     newTaskInput.value = taskTitle;
 
-    // var btn = document.createElement("BUTTON");
+    // let btn = document.createElement("BUTTON");
     // btn.innerHTML = 'SAVE';
     // let icons = document.querySelector('#icons');
     // icons.appendChild(btn);
 
+    createTask.addEventListener("click", () => {
+      event.preventDefault();
 
-    createTask.addEventListener('click', () =>{
-    event.preventDefault();
-
-      console.log('post updated')
+      console.log("post updated");
 
       fetch(`/todos/${id}`, {
         method: "PUT",
         body: JSON.stringify({
-          task: newTaskInput.value,
+          task: taskTitle.value,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-      .then(res => res.json())
-      .then(() => location.reload())
-    })
+        .then((res) => res.json())
+        .catch((error) => {
+          console.log(error)
+        })
+        .then(() => location.reload())
 
+    });
   }
 });

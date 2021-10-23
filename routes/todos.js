@@ -41,6 +41,7 @@ router.get("/:taskId", (req, res) => {
 // POST - add new task
 router.post("/add", (req, res) => {
   let newId = allTodos.length + Math.floor(Math.random() * 258);
+  // let newId = Date.now();
 
   const { id, task, complete } = req.body;
 
@@ -82,7 +83,7 @@ router.put("/:taskId", async (req, res) => {
 
   const taskIndex = allTodos.findIndex((item) => item.id === taskId);
   allTodos.splice(taskIndex, 1, updatedTask);
-  res.send.json(updatedTask);
+  res.send(updatedTask);
   // res.json(updatedTask);
 });
 
