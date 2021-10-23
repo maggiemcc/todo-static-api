@@ -8,9 +8,9 @@
     - get todos: http://localhost:5000/todos
     - get single todo: http://localhost:5000/todos/1
 
+- Static folder: [public](https://github.com/maggiemcc/todo-static-api/blob/master/public)
 
-
-* Located in [fetching](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
+* [Server](https://github.com/maggiemcc/todo-static-api/blob/master/server.js)
 
 ## 1- GET TODOS:
 - GET all todos: line 15
@@ -26,8 +26,8 @@
 [Todos POST Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
 
 - POST todos: on line 29
-[Todos GET index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
-- Created addEventListener for the "Add" button. Takes the value users type and then uses the fetch method: 'POST' to add the task to the list based on the public/routes/todos/ router.post.
+[Todos POST index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
+- Created addEventListener for the "Add" button. Takes the value users type and then uses the fetch method: 'POST' to add the task to the list based on the public/routes/todos router.post().
 
 
 ## 3- PUT TODOS:
@@ -35,7 +35,7 @@
 [Todos Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
 
 - PUT todos: on line 71
-[Todos GET index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
+[Todos PUT index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
 
 - PUT only half works. My thought process was to have the task users wanted to edit display in the new task input box and then after editing hit 'add' and it will replace the old task with the updated task. Currently, the task to be edited will display in the new task input but then will be added as a new task.
 
