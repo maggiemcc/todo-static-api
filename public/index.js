@@ -1,5 +1,5 @@
 // Display all todos
-function displaying(todo) {
+function showAllTodos(todo) {
   let ul = document.querySelector("#incomplete-tasks");
 
   let todoLayout = `
@@ -23,7 +23,7 @@ fetch("/todos", {
 })
   .then((res) => res.json())
   .then((data) => {
-    data.forEach((todo) => displaying(todo));
+    data.forEach((todo) => showAllTodos(todo));
   });
 
 // Create/Add new todo
@@ -35,17 +35,16 @@ createTask.addEventListener("click", (event) => {
 
   fetch("/todos/add", {
     method: "POST",
-    body: JSON.stringify({task: newTaskInput.value}),
+    body: JSON.stringify({ task: newTaskInput.value }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
   })
     .then((res) => res.json())
     .then((data) => {
-      displaying(data);
+      showAllTodos(data);
     })
     .then(() => location.reload());
-
 });
 
 // Delete todos
@@ -64,7 +63,7 @@ tasks.addEventListener("click", (event) => {
       .then((res) => res.json())
       .then(() => location.reload())
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   }
 });
@@ -106,10 +105,9 @@ tasks.addEventListener("click", (event) => {
       })
         .then((res) => res.json())
         .catch((error) => {
-          console.log(error)
+          console.log(error);
         })
-        .then(() => location.reload())
-
+        .then(() => location.reload());
     });
   }
 });
