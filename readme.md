@@ -13,25 +13,36 @@
 * Located in [fetching](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
 
 ## 1- GET TODOS:
-- GET all todos: 
-<!-- [Todos Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js) -->
-- Gets and displays every todo item in the original allTodos object array by creating using fetch, creating a layout,and then displayed using innerHTML.
-   
+- GET all todos: line 15
+[Todos GET Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
 
+- GET todos: on line 1
+[Todos GET index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
+- Gets and displays every todo item in the original allTodos object array by creating using fetch, creating a layout,and then displayed using innerHTML.
+
+   
 ## 2- POST TODOS:
-- POST/Add new todos: 
-<!-- [Todos Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js) -->
+- POST/Add new todos: line 41
+[Todos POST Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
+
+- POST todos: on line 29
+[Todos GET index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
 - Created addEventListener for the "Add" button. Takes the value users type and then uses the fetch method: 'POST' to add the task to the list based on the public/routes/todos/ router.post.
 
 
 ## 3- PUT TODOS:
-- PUT/update todos: 
-<!-- [Todos Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js) -->
-<!-- - Updates/edits -->
+- PUT/update todos: line 62
+[Todos Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
+
+- PUT todos: on line 71
+[Todos GET index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
+
+- PUT only half works. My thought process was to have the task users wanted to edit display in the new task input box and then after editing hit 'add' and it will replace the old task with the updated task. Currently, the task to be edited will display in the new task input but then will be added as a new task.
 
 ## 4- DELETE TODOS:
-- DELETE todos: on line 89
+- DELETE todos: on line 90
 [Delete route/todos](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
-- DELETE todos: on line 49
+
+- DELETE todos: on line 50
 [Delete Todo index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
  - created click eventlistener for delete button to deleted task with given id number and then reload page to show updated object array with removed task.
