@@ -1,9 +1,11 @@
+(function (window) {
 // Display all todos
 function showAllTodos(todo) {
   let ul = document.querySelector("#incomplete-tasks");
 
   let todoLayout = `
   <li class="todo-task" data-id="${todo.id}">
+   <label class="id-number">${todo.id}:</label>
    <label class="task-name">${todo.task}</label>
 
  <div id="icons">
@@ -32,7 +34,8 @@ const createTask = document.querySelector("#add-task");
 
 createTask.addEventListener("click", (event) => {
   event.preventDefault();
-
+  console.log('new task created')
+  
   fetch("/todos/add", {
     method: "POST",
     body: JSON.stringify({ task: newTaskInput.value }),
@@ -44,7 +47,7 @@ createTask.addEventListener("click", (event) => {
     .then((data) => {
       showAllTodos(data);
     })
-    .then(() => location.reload());
+    // .then(() => location.reload());
 });
 
 // Delete todos
@@ -111,3 +114,4 @@ tasks.addEventListener("click", (event) => {
     });
   }
 });
+})(window);

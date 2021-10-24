@@ -5,11 +5,11 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 let allTodos = [
-  { id: 1, task: "Go to school", complete: false },
-  { id: 2, task: "Go to work", complete: false },
-  { id: 3, task: "Go to dentist", complete: false },
-  { id: 4, task: "Do homework", complete: false },
-  { id: 5, task: "Go to the gym", complete: false },
+  { id: 1, task: "go to school", complete: false },
+  { id: 2, task: "go to work", complete: false },
+  { id: 3, task: "go to dentist", complete: false },
+  { id: 4, task: "do homework", complete: false },
+  { id: 5, task: "go to the gym", complete: false },
 ];
 
 // Get - get all tasks
@@ -33,18 +33,11 @@ router.get("/:taskId", (req, res) => {
     res.status(404).json({ message: "Task does not exist" });
   }
 });
-// router.get('/add', (req, res) =>{
-//   res.status(200).json(found);
-
-// })
 
 // POST - add new task
 router.post("/add", (req, res) => {
   let newId = allTodos.length + Math.floor(Math.random() * 258);
-  // let newId = Date.now();
-
   const { id, task, complete } = req.body;
-
   const taskExists = allTodos.find((item) => item.task === task);
 
   let newTask = {
@@ -65,13 +58,13 @@ router.put("/:taskId", async (req, res) => {
 
   const { id, task, complete } = req.body;
 
-  const editTask = allTodos.find((item) => item.task === taskId);
+  const editTask = allTodos.find((item) => item.id === taskId);
   // if (!editTask) return res.send.json({ message: "Task already exists." });
   if (!editTask) {
     return res.status(404);
   }
-
-  // check that val is present, if not use prev. if new val use new.
+  else {
+     // check that val is present, if not use prev. if new val use new.
   const updatedField = (val, prev) => (!val ? prev : val);
 
   const updatedTask = {
@@ -83,8 +76,12 @@ router.put("/:taskId", async (req, res) => {
 
   const taskIndex = allTodos.findIndex((item) => item.id === taskId);
   allTodos.splice(taskIndex, 1, updatedTask);
-  res.send(updatedTask);
-  // res.json(updatedTask);
+  res.status(200).json({message: 'success'})
+  
+
+  }
+
+
 });
 
 // DELETE - delete task
@@ -93,21 +90,5 @@ router.delete("/:taskid", (req, res) => {
   allTodos = allTodos.filter((todo) => todo.id != taskid);
   res.send(allTodos);
 });
-
-// PUT - update task
-// router.put("/:taskid", (req, res) => {
-//   const { taskid } = req.params;
-//   const { id, task, complete } = req.body;
-
-//   const taskToEdit = allTodos.find((todo) => todo.id === taskid);
-
-//   if (id) taskToEdit.id = id;
-//   if (task) taskToEdit.task = task;
-//   if (complete) taskToEdit.complete = complete;
-
-//   if (!taskToEdit) return res.json({ message: "Task already exists." });
-
-//   res.send(taskToEdit);
-// });
 
 module.exports = router;

@@ -8,9 +8,9 @@
     - get todos: http://localhost:5000/todos
     - get single todo: http://localhost:5000/todos/1
 
-- Static folder: [public](https://github.com/maggiemcc/todo-static-api/blob/master/public)
+- Static folder: [public folder](https://github.com/maggiemcc/todo-static-api/blob/master/public)
 
-* [Server](https://github.com/maggiemcc/todo-static-api/blob/master/server.js)
+* [Server File](https://github.com/maggiemcc/todo-static-api/blob/master/server.js)
 
 ## 1- GET TODOS:
 - GET all todos: line 15
@@ -40,7 +40,7 @@
 - PUT only half works. My thought process was to have the task users wanted to edit display in the new task input box and then after editing hit 'add' and it will replace the old task with the updated task. Currently, the task to be edited will display in the new task input but then will be added as a new task.
 
 ## 4- DELETE TODOS:
-- DELETE todos: on line 90
+- DELETE todos: on line 91
 [Delete route/todos](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
 
 - DELETE todos: on line 50

@@ -19,7 +19,7 @@ body {
     margin: 0;
     padding: 0;
   }
-  li * {
+  li label {
     float: left;
   }
   li, h3 {
@@ -35,13 +35,10 @@ body {
     color: #888;
     font-size: 15px;
     width: 60px;
-    /* margin: 10px 0 0; */
     font-family: Lato, sans-serif;
     cursor: pointer;
   }
-  /* button:hover {
-    color: #333;
-  } */
+
   /* Heading */
   h3
   {
@@ -54,20 +51,21 @@ body {
     text-transform: uppercase;
   }
   
-  input[type="text"] {
+  input {
     margin: 0;
-    font-size: 18px;
-    line-height: 18px;
-    height: 18px;
+    font-size: 20px;
+    line-height: 20px;
+    height: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     background: #fff;
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: Lato, sans-serif;
-    color: #888;
+    color: darkGray;
   }
-  input[type="text"]:focus {
-    color: #333;
+
+  input:focus {
+    color: black;
   }
   
   /* New Task */
@@ -80,7 +78,6 @@ body {
   }
   #add-task {
     background-color: green;
-    /* border: 1px solid black; */
     width: 15%;
     color: white;
     margin: 0;
@@ -97,34 +94,28 @@ body {
     padding: 20px 0;
     border-bottom: 1px solid #eee;
   }
-  /* li > input[type="checkbox"] {
-    margin: 0 10px;
-    position: relative;
-    top: 15px;
-  } */
-  li > label {
+
+  li > .id-number {
     font-size: 18px;
     line-height: 40px;
-    max-width:350px;
+    width: 50px;
     padding: 0 0 0 11px;
   }
-  li >  input[type="text"] {
-    width: 225px;
+  li > .task-name {
+    font-size: 18px;
+    line-height: 40px;
+    max-width: 350px;
   }
-  /* li > .delete:hover {
-    color: #CF2323;
-  } */
 
   li {
     width: 100%;
-    /* border: 1px solid green; */
     min-width: 400px;
   }
-  label {
+  .task-name {
     width: 65%;
-    /* border: 1px solid gray; */
     margin-right: 5px;
   }
+  
   #icons {
     width: 30%;
     display: grid;
@@ -148,26 +139,13 @@ body {
     border-radius: 2px;
     line-height: 40px;
   }
-  
-  /* Completed */
-  #completed-tasks label {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  /* Edit Task */
-  ul li input[type=text] {
-    display:none;
-  }
-  
-  ul li.editMode input[type=text] {
-    display:block;
-  }
-  
-  ul li.editMode label {
-    display:none;
-  }
+
 
   #new-task-section {
     text-align: center;
   }
+
+  .id-number, .task-name {
+    display: inline;
+  }
+  
