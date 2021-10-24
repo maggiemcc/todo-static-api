@@ -91,6 +91,7 @@ tasks.addEventListener("click", (event) => {
     let taskTitle = taskLiElement.querySelector(".task-name").textContent;
     editTaskInput.value = taskTitle;
 
+
     updateTask.addEventListener("click", () => {
       event.preventDefault();
 

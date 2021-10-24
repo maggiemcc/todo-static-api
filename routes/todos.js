@@ -58,13 +58,14 @@ router.post("/add", (req, res) => {
 
 //   const { id, task, complete } = req.body;
 
-//   const editTask = allTodos.find((item) => item.id === taskId);
+//   const editTask = allTodos.find((item) => item.task === taskId);
 //   if (!editTask) {
 //     return res.status(404);
 //   }
+//   const updatedField = (val, prev) => (!val ? prev : val);
 
 //   const updatedTask = {
-//     // ...editTask,
+//     ...editTask,
 //     id,
 //     task: updatedField(task, editTask.task),
 //     complete: complete,
@@ -86,7 +87,7 @@ router.put("/:taskid", (req, res) => {
   if (task) taskToEdit.task = task;
   if (complete) taskToEdit.complete = complete;
 
-  if (!taskToEdit) return res.status(404);
+  if (!taskToEdit) return res.json({ message: "Task already exists." });
   res.status(202);
 });
 
