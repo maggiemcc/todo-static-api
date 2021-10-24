@@ -149,3 +149,30 @@ body {
     display: inline;
   }
   
+  #update-task-section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #update-task-section h3 {
+    text-align: left;
+  }
+
+  #update-task-section input {
+    margin-top: 2%;
+    width: 45%;
+    border: 1px solid black;
+  }
+  
+  #update-task {
+    background-color: green;
+    width: 120px;
+    color: white;
+    margin: 0 2%;
+    padding: 2%;
+    border-radius: 5px;
+  }
+  #update-task:hover {
+    background-color: darkGreen;
+  }

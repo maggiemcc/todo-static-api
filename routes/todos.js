@@ -52,36 +52,42 @@ router.post("/add", (req, res) => {
   res.json(newTask);
 });
 
-// PUT - update tasks (working- with help from youtube tutorial)
-router.put("/:taskId", async (req, res) => {
-  const { taskId } = req.params;
+// PUT
+// router.put("/:taskId", async (req, res) => {
+//   const { taskId } = req.params;
 
+//   const { id, task, complete } = req.body;
+
+//   const editTask = allTodos.find((item) => item.id === taskId);
+//   if (!editTask) {
+//     return res.status(404);
+//   }
+
+//   const updatedTask = {
+//     // ...editTask,
+//     id,
+//     task: updatedField(task, editTask.task),
+//     complete: complete,
+//   };
+
+//   const taskIndex = allTodos.findIndex((item) => item.id === taskId);
+//   allTodos.splice(taskIndex, 1, updatedTask);
+//   res.status(200)
+
+// });
+
+router.put("/:taskid", (req, res) => {
+  const { taskid } = req.params;
   const { id, task, complete } = req.body;
 
-  const editTask = allTodos.find((item) => item.id === taskId);
-  // if (!editTask) return res.send.json({ message: "Task already exists." });
-  if (!editTask) {
-    return res.status(404);
-  }
-  else {
-     // check that val is present, if not use prev. if new val use new.
-  const updatedField = (val, prev) => (!val ? prev : val);
+  const taskToEdit = allTodos.find((todo) => todo.id === taskid);
 
-  const updatedTask = {
-    ...editTask,
-    id,
-    task: updatedField(task, editTask.task),
-    complete: complete,
-  };
+  if (id) taskToEdit.id = id;
+  if (task) taskToEdit.task = task;
+  if (complete) taskToEdit.complete = complete;
 
-  const taskIndex = allTodos.findIndex((item) => item.id === taskId);
-  allTodos.splice(taskIndex, 1, updatedTask);
-  res.status(200).json({message: 'success'})
-  
-
-  }
-
-
+  if (!taskToEdit) return res.json({ message: "Task already exists." });
+  res.status(202);
 });
 
 // DELETE - delete task

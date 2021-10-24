@@ -31,16 +31,16 @@
 
 
 ## 3- PUT TODOS:
-- PUT/update todos: line 62
+- PUT/update todos: line 55
 [Todos Route](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
 
 - PUT todos: on line 71
 [Todos PUT index.js](https://github.com/maggiemcc/todo-static-api/blob/master/public/index.js)
 
-- PUT only half works. My thought process was to have the task users wanted to edit display in the new task input box and then after editing hit 'add' and it will replace the old task with the updated task. Currently, the task to be edited will display in the new task input but then will be added as a new task.
+- PUT only half works. My thought process was to have the task users wanted to edit display in the edit task input box and then after editing hit 'update todo' and it will replace the old task with the updated task.
 
 ## 4- DELETE TODOS:
-- DELETE todos: on line 91
+- DELETE todos: on line 93
 [Delete route/todos](https://github.com/maggiemcc/todo-static-api/blob/master/routes/todos.js)
 
 - DELETE todos: on line 50

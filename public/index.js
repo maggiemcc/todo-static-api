@@ -30,6 +30,7 @@ fetch("/todos", {
 
 // Create/Add new todo
 const newTaskInput = document.querySelector("#new-task");
+
 const createTask = document.querySelector("#add-task");
 
 createTask.addEventListener("click", (event) => {
@@ -71,7 +72,11 @@ tasks.addEventListener("click", (event) => {
   }
 });
 
-// Edit todos (works as far as displaying task in input field, but instead of replacing task it creates new)
+// Edit todos (works as far as displaying task in input field)
+const editTaskInput = document.querySelector("#edit-task");
+const updateTask = document.querySelector("#update-task");
+
+
 tasks.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -84,15 +89,9 @@ tasks.addEventListener("click", (event) => {
     const taskLiElement = event.target.parentElement.parentElement;
 
     let taskTitle = taskLiElement.querySelector(".task-name").textContent;
+    editTaskInput.value = taskTitle;
 
-    newTaskInput.value = taskTitle;
-
-    // let btn = document.createElement("BUTTON");
-    // btn.innerHTML = 'SAVE';
-    // let icons = document.querySelector('#icons');
-    // icons.appendChild(btn);
-
-    createTask.addEventListener("click", () => {
+    updateTask.addEventListener("click", () => {
       event.preventDefault();
 
       console.log("post updated");
