@@ -47,7 +47,7 @@ createTask.addEventListener("click", (event) => {
     .then((data) => {
       showAllTodos(data);
     })
-    // .then(() => location.reload());
+    .then(() => location.reload());
 });
 
 // Delete todos
