@@ -86,7 +86,7 @@ router.put("/:taskid", (req, res) => {
   if (task) taskToEdit.task = task;
   if (complete) taskToEdit.complete = complete;
 
-  if (!taskToEdit) return res.json({ message: "Task already exists." });
+  if (!taskToEdit) return res.status(404);
   res.status(202);
 });
 
